@@ -1,60 +1,51 @@
-export type ProductStatus = 'live' | 'coming-soon' | 'planned';
+export type ProductStatus = "live" | "building";
 
 export interface Product {
   name: string;
-  japaneseName: string;
   tagline: string;
   description: string;
   accent: string;
   status: ProductStatus;
   url?: string;
-  github?: string;
+  stack: string[];
 }
 
 export const products: Product[] = [
   {
-    name: 'KASHITE',
-    japaneseName: 'カシテ',
-    tagline: 'Lend it. Track it. Get it back.',
-    description: '貸し借り記録',
-    accent: '#E85D3A',
-    status: 'live',
-    url: 'https://kashite.app',
-    github: 'https://github.com/masatonaut/kashite',
+    name: "KASHITE",
+    tagline: "Track who borrowed what. Get it back.",
+    description: "A dead-simple lending tracker for everyday life.",
+    accent: "#E85D3A",
+    status: "live",
+    url: "https://kashite.kyren.app",
+    stack: ["Next.js", "Supabase", "Stripe"],
   },
   {
-    name: 'DOCCHI',
-    japaneseName: 'ドッチ',
-    tagline: 'Two choices. One tap. Done.',
-    description: '2択ルーレット',
-    accent: '#5B8DEF',
-    status: 'coming-soon',
-    github: 'https://github.com/masatonaut/docchi',
+    name: "YOMU",
+    tagline: "AI reading assistant.",
+    description: "Upload a book, ask questions, get insights powered by AI.",
+    accent: "#5B8DEF",
+    status: "live",
+    url: "https://yomu.kyren.app",
+    stack: ["Next.js", "Supabase", "Claude API"],
   },
   {
-    name: 'MATSU',
-    japaneseName: 'マツ',
-    tagline: 'Share the countdown.',
-    description: 'カウントダウン共有',
-    accent: '#D4A853',
-    status: 'planned',
+    name: "Phrasely",
+    tagline: "Write better English.",
+    description:
+      "Context-aware writing suggestions. Learn why they work.",
+    accent: "#4CAF82",
+    status: "live",
+    url: "https://phrasely.kyren.app",
+    stack: ["Next.js", "Supabase", "Claude API"],
   },
   {
-    name: 'KURIKAN',
-    japaneseName: 'クリカン',
-    tagline: 'Track recurring costs.',
-    description: '定期出費メモ',
-    accent: '#4CAF82',
-    status: 'planned',
-  },
-  {
-    name: 'FKURO',
-    japaneseName: 'フクロ',
-    tagline: 'Your visual closet.',
-    description: 'マイクローゼット',
-    accent: '#2D2D2D',
-    status: 'planned',
+    name: "SABAKU",
+    tagline: "ATC-inspired task management.",
+    description:
+      "Visual, spatial, decisive. Task strips like air traffic control.",
+    accent: "#D4A853",
+    status: "building",
+    stack: ["Next.js", "Supabase", "DnD Kit"],
   },
 ];
-
-// 今後30+に拡大予定。この配列に追加するだけでサイトに反映される。

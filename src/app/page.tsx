@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter, Mail, ExternalLink } from "lucide-react";
+import { Github, Linkedin, Mail, ExternalLink, ArrowUpRight } from "lucide-react";
 import { products, type Product } from "@/data/products";
 import { skillCategories } from "@/data/skills";
 
@@ -8,66 +8,65 @@ function ProductCard({ product }: { product: Product }) {
 
   return (
     <Wrapper
-      {...(isClickable ? { href: product.url, target: "_blank", rel: "noopener noreferrer" } : {})}
+      {...(isClickable
+        ? { href: product.url, target: "_blank", rel: "noopener noreferrer" }
+        : {})}
       className={`
-        group relative p-5 rounded-xl border border-border bg-bg-secondary
-        transition-all duration-200
-        ${isClickable ? "cursor-pointer hover:shadow-md hover:border-transparent" : ""}
-        ${product.status !== "live" ? "opacity-60" : ""}
+        group relative p-6 rounded-2xl border border-border bg-bg-secondary/50
+        transition-all duration-300
+        ${isClickable ? "cursor-pointer hover:bg-bg-secondary hover:border-transparent hover:shadow-lg" : ""}
+        ${product.status !== "live" ? "opacity-50" : ""}
       `}
     >
-      <div className="flex items-start gap-4">
-        {/* Icon */}
+      {/* Header: icon + badge */}
+      <div className="flex items-start justify-between mb-4">
         <div
-          className="w-12 h-12 rounded-full flex items-center justify-center text-white font-heading font-bold text-lg shrink-0"
+          className="w-10 h-10 rounded-xl flex items-center justify-center text-white font-heading font-bold text-sm"
           style={{ backgroundColor: product.accent }}
         >
           {product.name[0]}
         </div>
-
-        {/* Content */}
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2 mb-1">
-            <h3 className="font-heading font-bold text-text-primary">
-              {product.name}
-            </h3>
-            <span className="text-text-tertiary text-sm">
-              {product.japaneseName}
-            </span>
-          </div>
-          <p className="text-text-secondary text-sm mb-2">
-            {product.description}
-          </p>
-          <p className="text-text-tertiary text-xs">
-            {product.tagline}
-          </p>
-        </div>
-
-        {/* Status badge */}
-        <div className="shrink-0">
-          {product.status === "live" && (
-            <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
-              <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
-              Live
-            </span>
-          )}
-          {product.status === "coming-soon" && (
-            <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400">
-              Coming Soon
-            </span>
-          )}
-          {product.status === "planned" && (
-            <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400">
-              Planned
-            </span>
-          )}
-        </div>
-
-        {/* External link icon */}
-        {isClickable && (
-          <ExternalLink className="w-4 h-4 text-text-tertiary opacity-0 group-hover:opacity-100 transition-opacity absolute top-4 right-4" />
+        {product.status === "live" && (
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-green-500/10 text-green-600 dark:text-green-400">
+            <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+            Live
+          </span>
+        )}
+        {product.status === "building" && (
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-amber-500/10 text-amber-600 dark:text-amber-400">
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+            Building
+          </span>
         )}
       </div>
+
+      {/* Name + tagline */}
+      <h3 className="font-heading font-bold text-lg text-text-primary mb-1">
+        {product.name}
+      </h3>
+      <p className="text-text-secondary text-sm leading-relaxed mb-4">
+        {product.description}
+      </p>
+
+      {/* Tech stack */}
+      <div className="flex flex-wrap gap-1.5 mb-3">
+        {product.stack.map((tech) => (
+          <span
+            key={tech}
+            className="px-2 py-0.5 rounded-md text-xs font-mono text-text-tertiary bg-bg-primary border border-border"
+          >
+            {tech}
+          </span>
+        ))}
+      </div>
+
+      {/* CTA */}
+      {isClickable && (
+        <div className="flex items-center gap-1 text-sm text-text-tertiary group-hover:text-text-primary transition-colors mt-2">
+          Try it
+          <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        </div>
+      )}
     </Wrapper>
   );
 }
@@ -75,31 +74,66 @@ function ProductCard({ product }: { product: Product }) {
 export default function Home() {
   return (
     <main className="min-h-screen bg-bg-primary">
+      {/* Nav */}
+      <nav className="max-w-4xl mx-auto px-6 py-6 flex justify-between items-center">
+        <span className="text-text-tertiary text-sm font-medium tracking-wide">
+          masatonaut
+        </span>
+        <div className="flex gap-5">
+          <a
+            href="#products"
+            className="text-text-tertiary text-sm hover:text-text-primary transition-colors"
+          >
+            Products
+          </a>
+          <a
+            href="#about"
+            className="text-text-tertiary text-sm hover:text-text-primary transition-colors"
+          >
+            About
+          </a>
+          <a
+            href="mailto:hey@kyren.app"
+            className="text-text-tertiary text-sm hover:text-text-primary transition-colors"
+          >
+            Contact
+          </a>
+        </div>
+      </nav>
+
       {/* Hero Section */}
-      <section className="min-h-[80vh] flex flex-col items-center justify-center px-6 py-20">
+      <section className="min-h-[75vh] flex flex-col items-center justify-center px-6 py-16">
         <div className="text-center max-w-2xl animate-fade-up">
-          <h1 className="font-heading font-extrabold text-6xl md:text-7xl lg:text-8xl text-text-primary mb-4">
-            masatonaut
+          <h1 className="font-heading font-extrabold text-5xl md:text-6xl lg:text-7xl text-text-primary mb-6 tracking-tight">
+            Masato Ito
           </h1>
-          <p className="text-text-secondary text-lg md:text-xl mb-6 animate-fade-up-delay-1">
-            AI Engineer • Indie Maker • USC MSCS &apos;28
+          <p className="text-text-secondary text-lg md:text-xl mb-3 animate-fade-up-delay-1">
+            AI Engineer &amp; Indie Maker
           </p>
-          <p className="text-text-tertiary text-base md:text-lg mb-10 animate-fade-up-delay-2">
-            日常の摩擦を美しく解消するマイクロツールを作っています。
+          <p className="text-text-tertiary text-base mb-10 animate-fade-up-delay-2 max-w-md mx-auto">
+            Building{" "}
+            <a
+              href="https://kyren.app"
+              className="text-text-secondary hover:text-text-primary transition-colors underline decoration-border underline-offset-4"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Kyren
+            </a>
+            , a focused product studio from Tokyo.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up-delay-3">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center animate-fade-up-delay-3">
             <a
               href="#products"
-              className="px-8 py-3 rounded-full font-medium text-white transition-all hover:opacity-90"
-              style={{ background: "linear-gradient(135deg, #E85D3A, #5B8DEF)" }}
+              className="px-7 py-2.5 rounded-full font-medium text-sm text-white bg-text-primary hover:opacity-90 transition-all"
             >
-              Projects
+              View Products
             </a>
             <a
-              href="mailto:masatonaut@gmail.com"
-              className="px-8 py-3 rounded-full font-medium border border-border text-text-primary hover:bg-bg-secondary transition-colors"
+              href="mailto:hey@kyren.app"
+              className="px-7 py-2.5 rounded-full font-medium text-sm border border-border text-text-secondary hover:text-text-primary hover:border-text-tertiary transition-all"
             >
-              Contact
+              Get in Touch
             </a>
           </div>
         </div>
@@ -107,13 +141,13 @@ export default function Home() {
 
       {/* Products Section */}
       <section id="products" className="px-6 py-20 max-w-4xl mx-auto">
-        <div className="mb-12">
-          <h2 className="font-heading font-bold text-3xl md:text-4xl text-text-primary mb-2">
+        <div className="mb-10">
+          <p className="text-xs font-medium tracking-widest uppercase text-text-tertiary mb-2">
             Products
-          </h2>
-          <p className="text-text-secondary">
-            <span className="gradient-text font-medium">choimo</span> — Micro tools for daily friction
           </p>
+          <h2 className="font-heading font-bold text-2xl md:text-3xl text-text-primary">
+            Kyren Product Suite
+          </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -122,29 +156,40 @@ export default function Home() {
           ))}
         </div>
 
-        <p className="text-text-tertiary text-sm text-center mt-8">
-          30+ more apps planned for the choimo series
+        <p className="text-center mt-8">
+          <a
+            href="https://kyren.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-sm text-text-tertiary hover:text-text-primary transition-colors"
+          >
+            View all at kyren.app
+            <ExternalLink className="w-3.5 h-3.5" />
+          </a>
         </p>
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="px-6 py-20 bg-bg-secondary">
+      <section id="skills" className="px-6 py-20 border-t border-border">
         <div className="max-w-4xl mx-auto">
-          <h2 className="font-heading font-bold text-3xl md:text-4xl text-text-primary mb-12 text-center">
-            Skills
+          <p className="text-xs font-medium tracking-widest uppercase text-text-tertiary mb-2 text-center">
+            Stack
+          </p>
+          <h2 className="font-heading font-bold text-2xl md:text-3xl text-text-primary mb-12 text-center">
+            Technologies
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {skillCategories.map((category) => (
               <div key={category.name}>
-                <h3 className="font-medium text-text-primary mb-3">
+                <h3 className="text-xs font-medium tracking-wider uppercase text-text-tertiary mb-3">
                   {category.name}
                 </h3>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-col gap-1.5">
                   {category.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-3 py-1.5 rounded-full text-sm bg-bg-primary text-text-secondary border border-border"
+                      className="text-sm text-text-secondary"
                     >
                       {skill}
                     </span>
@@ -158,104 +203,113 @@ export default function Home() {
 
       {/* About Section */}
       <section id="about" className="px-6 py-20 max-w-4xl mx-auto">
-        <h2 className="font-heading font-bold text-3xl md:text-4xl text-text-primary mb-8 text-center">
-          About
-        </h2>
+        <div className="max-w-xl mx-auto">
+          <p className="text-xs font-medium tracking-widest uppercase text-text-tertiary mb-2">
+            About
+          </p>
+          <h2 className="font-heading font-bold text-2xl md:text-3xl text-text-primary mb-8">
+            Background
+          </h2>
 
-        <div className="space-y-6 text-text-secondary max-w-2xl mx-auto">
-          <p>
-            AI Engineer at <strong className="text-text-primary">QuackShift</strong> (2024-2026).
-            Building enterprise AI solutions with RAG, LangChain, and Claude API.
-          </p>
-          <p>
-            <strong className="text-text-primary">USC Master of Computer Science</strong> — Fall 2026 incoming.
-            Focusing on Machine Learning and AI.
-          </p>
-          <p>
-            International experience: Hungary (ELTE), Australia.
-            29歳、日英バイリンガル。
-          </p>
-        </div>
+          <div className="space-y-5 text-text-secondary leading-relaxed">
+            <p>
+              AI Engineer building enterprise solutions with RAG and Claude API.
+              Shipping side projects as{" "}
+              <a
+                href="https://kyren.app"
+                className="text-text-primary hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Kyren
+              </a>
+              .
+            </p>
+            <p>
+              CS background from Budapest (ELTE). International experience
+              across Hungary, Australia, and Japan.
+              Based in Tokyo.
+            </p>
+          </div>
 
-        <div className="flex justify-center gap-6 mt-10">
-          <a
-            href="https://github.com/masatonaut"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 rounded-full hover:bg-bg-secondary transition-colors text-text-secondary hover:text-text-primary"
-            aria-label="GitHub"
-          >
-            <Github className="w-6 h-6" />
-          </a>
-          <a
-            href="https://linkedin.com/in/masatonaut"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 rounded-full hover:bg-bg-secondary transition-colors text-text-secondary hover:text-text-primary"
-            aria-label="LinkedIn"
-          >
-            <Linkedin className="w-6 h-6" />
-          </a>
-          <a
-            href="https://twitter.com/masatonaut"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 rounded-full hover:bg-bg-secondary transition-colors text-text-secondary hover:text-text-primary"
-            aria-label="X (Twitter)"
-          >
-            <Twitter className="w-6 h-6" />
-          </a>
-          <a
-            href="mailto:masatonaut@gmail.com"
-            className="p-3 rounded-full hover:bg-bg-secondary transition-colors text-text-secondary hover:text-text-primary"
-            aria-label="Email"
-          >
-            <Mail className="w-6 h-6" />
-          </a>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="px-6 py-12 border-t border-border">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-text-tertiary text-sm mb-4">
-            © 2026 masatonaut
-          </p>
-          <div className="flex justify-center gap-6 mb-6">
+          {/* Social links */}
+          <div className="flex gap-3 mt-10">
             <a
               href="https://github.com/masatonaut"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-text-tertiary hover:text-text-secondary text-sm transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm text-text-secondary border border-border hover:border-text-tertiary hover:text-text-primary transition-all"
+              aria-label="GitHub"
             >
+              <Github className="w-4 h-4" />
               GitHub
             </a>
             <a
               href="https://linkedin.com/in/masatonaut"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-text-tertiary hover:text-text-secondary text-sm transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm text-text-secondary border border-border hover:border-text-tertiary hover:text-text-primary transition-all"
+              aria-label="LinkedIn"
             >
+              <Linkedin className="w-4 h-4" />
               LinkedIn
             </a>
             <a
-              href="https://twitter.com/masatonaut"
+              href="https://x.com/masatobuilds"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-text-tertiary hover:text-text-secondary text-sm transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm text-text-secondary border border-border hover:border-text-tertiary hover:text-text-primary transition-all"
+              aria-label="X"
             >
+              <svg className="w-4 h-4" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z" />
+              </svg>
               X
             </a>
             <a
-              href="mailto:masatonaut@gmail.com"
-              className="text-text-tertiary hover:text-text-secondary text-sm transition-colors"
+              href="mailto:hey@kyren.app"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm text-text-secondary border border-border hover:border-text-tertiary hover:text-text-primary transition-all"
+              aria-label="Email"
             >
+              <Mail className="w-4 h-4" />
               Email
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="px-6 py-10 border-t border-border">
+        <div className="max-w-4xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-text-tertiary text-xs">
-            Built with Next.js + Tailwind. Designed with Kanso.
+            &copy; 2026 Masato Ito
           </p>
+          <div className="flex gap-5">
+            <a
+              href="https://kyren.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-text-tertiary hover:text-text-secondary text-xs transition-colors"
+            >
+              Kyren
+            </a>
+            <a
+              href="https://github.com/masatonaut"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-text-tertiary hover:text-text-secondary text-xs transition-colors"
+            >
+              GitHub
+            </a>
+            <a
+              href="https://x.com/masatobuilds"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-text-tertiary hover:text-text-secondary text-xs transition-colors"
+            >
+              X
+            </a>
+          </div>
         </div>
       </footer>
     </main>

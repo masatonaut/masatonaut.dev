@@ -3,8 +3,6 @@ import { ImageResponse } from "next/og";
 export const runtime = "edge";
 
 export async function GET() {
-  const accentColors = ["#E85D3A", "#5B8DEF", "#D4A853", "#4CAF82", "#2D2D2D"];
-
   return new ImageResponse(
     (
       <div
@@ -15,52 +13,37 @@ export async function GET() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "#FAFAF8",
+          backgroundColor: "#09090B",
           fontFamily: "system-ui, sans-serif",
         }}
       >
-        {/* Main text */}
         <div
           style={{
-            fontSize: 80,
+            fontSize: 72,
             fontWeight: 800,
-            color: "#1A1A1A",
-            marginBottom: 20,
-            letterSpacing: "-0.02em",
+            color: "#FAFAFA",
+            marginBottom: 16,
+            letterSpacing: "-0.03em",
           }}
         >
-          masatonaut
+          Masato Ito
         </div>
-
-        {/* Subtitle */}
         <div
           style={{
-            fontSize: 28,
-            color: "#6B6B6B",
-            marginBottom: 60,
+            fontSize: 24,
+            color: "#A1A1AA",
+            marginBottom: 48,
           }}
         >
-          AI Engineer • Indie Maker
+          AI Engineer &amp; Indie Maker
         </div>
-
-        {/* Choimo dots */}
         <div
           style={{
-            display: "flex",
-            gap: 16,
+            fontSize: 18,
+            color: "#52525B",
           }}
         >
-          {accentColors.map((color, i) => (
-            <div
-              key={i}
-              style={{
-                width: 24,
-                height: 24,
-                borderRadius: "50%",
-                backgroundColor: color,
-              }}
-            />
-          ))}
+          kyren.app &middot; masatonaut.dev
         </div>
       </div>
     ),

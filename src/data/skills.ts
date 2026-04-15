@@ -5,19 +5,19 @@ export interface SkillCategory {
 
 export const skillCategories: SkillCategory[] = [
   {
-    name: 'AI / ML',
-    skills: ['Claude API', 'RAG', 'LangChain', 'Dify', 'Prompt Engineering'],
+    name: "AI / ML",
+    skills: ["Claude API", "RAG", "NLP", "PyTorch", "Prompt Engineering"],
   },
   {
-    name: 'Frontend',
-    skills: ['TypeScript', 'Next.js', 'React', 'Tailwind CSS', 'Framer Motion'],
+    name: "Frontend",
+    skills: ["TypeScript", "Next.js", "React", "Tailwind CSS"],
   },
   {
-    name: 'Backend',
-    skills: ['Python', 'Node.js', 'PostgreSQL', 'Supabase', 'Stripe'],
+    name: "Backend",
+    skills: ["Python", "Node.js", "PostgreSQL", "Supabase", "Stripe"],
   },
   {
-    name: 'Infrastructure',
-    skills: ['Vercel', 'Docker', 'GitHub Actions', 'Cloudflare'],
+    name: "Infrastructure",
+    skills: ["Vercel", "Docker", "GitHub Actions"],
   },
 ];
