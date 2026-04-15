@@ -245,7 +245,7 @@ export default function Home() {
               GitHub
             </a>
             <a
-              href="https://linkedin.com/in/masatonaut"
+              href="https://www.linkedin.com/in/masatobuilds"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm text-text-secondary border border-border hover:border-text-tertiary hover:text-text-primary transition-all"
