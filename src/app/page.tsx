@@ -51,11 +51,9 @@ const timeline = [
   { year: "2024 — 2025", title: "ML Researcher — SZTAKI, Budapest", desc: "NLP research at Hungary's national CS lab. Text summarization, dataset construction, model optimization." },
   { year: "2023 — 2024", title: "Software Engineer — Ericsson, Budapest", desc: "Data pipelines with Python, Kubernetes, Docker, Helm. Automated analytics across Budapest, India, and Canada teams." },
   { year: "2023", title: "Teaching Assistant — ELTE, Budapest", desc: "Taught Functional Programming to undergrad CS students. Designed tests, delivered lectures." },
-  { year: "2022 — 2025", title: "ELTE Budapest — BSc Computer Science", desc: "Full Stipendium Hungaricum scholarship. GPA 4.63/5.0. Thesis: Factual Consistency Evaluation Using AMR." },
-  { year: "2022", title: "Working Holiday — Australia", desc: "Strawberry picking (piece-rate, 3 months), then driver in Sydney. A year of grinding and exploring a new continent." },
+  { year: "2022 — 2025", title: "ELTE Budapest — BSc Computer Science", desc: "Full Stipendium Hungaricum scholarship. Graduated with Excellent. Thesis: Factual Consistency Evaluation Using AMR." },
   { year: "2020 — 2022", title: "Cybozu — Tokyo", desc: "Product Support Engineer → Data Engineer. Built data infra on GCP, BI dashboards with Power BI & Redash." },
-  { year: "2018 — 2019", title: "PLAN-B — Tokyo", desc: "Marketing operations. Led 10+ interns, A/B testing, SEO, Google Ads." },
-  { year: "2016 — 2019", title: "Tokyo University of Science — BSc Mechanical Engineering", desc: "First degree. Engineering foundations before pivoting to CS." },
+  { year: "2019 — 2020", title: "Australia — Working Holiday", desc: "A year off the beaten path. Strawberry fields, Sydney streets, a new continent." },
 ];
 
 export default function Home() {
@@ -94,8 +92,8 @@ export default function Home() {
             { icon: Award, label: "ACL 2025", sub: "Published paper" },
             { icon: Globe, label: "24 countries", sub: "56+ cities" },
             { icon: BookOpen, label: "Bilingual", sub: "JP & EN" },
-            { icon: Dumbbell, label: "Bench 87.5kg", sub: "3x/week training" },
-            { icon: MapPin, label: "Master Diver", sub: "56 dives, PADI" },
+            { icon: Dumbbell, label: "Bench 100kg", sub: "3x/week training" },
+            { icon: MapPin, label: "PADI Master Scuba Diver", sub: "56 dives" },
           ].map(({ icon: Icon, label, sub }) => (
             <div key={label} className="flex flex-col items-center text-center py-3">
               <Icon className="w-4 h-4 text-text-tertiary mb-1.5" />
@@ -130,8 +128,8 @@ export default function Home() {
             <h2 className="font-heading font-bold text-xl md:text-2xl text-text-primary mb-4">Background</h2>
             <div className="space-y-3 text-sm text-text-secondary leading-relaxed">
               <p>AI/ML Engineer focused on NLP and production RAG systems. Co-authored a paper at <a href="https://aclanthology.org/2025.xllm-1.11/" className="text-text-primary hover:underline" target="_blank" rel="noopener noreferrer">ACL 2025</a> on AMR Parsing. Shipping indie products as <a href="https://kyren.app" className="text-text-primary hover:underline" target="_blank" rel="noopener noreferrer">Kyren</a>.</p>
-              <p>Two CS degrees — BSc from ELTE Budapest (Stipendium Hungaricum, GPA 4.63/5.0), MSc at USC starting Fall 2026. Prior background in Mechanical Engineering (Tokyo University of Science).</p>
-              <p>Worked at Ericsson (Budapest), Cybozu (Tokyo), and SZTAKI national lab (Budapest). Lived in Tokyo, Budapest, Sydney. 24 countries, 56+ cities. PADI Master Scuba Diver with 56 logged dives. Trains 3x/week.</p>
+              <p>BSc CS from ELTE Budapest (Stipendium Hungaricum, graduated with Excellent). MSc CS at USC starting Fall 2026.</p>
+              <p>Worked at Ericsson (Budapest), Cybozu (Tokyo), and SZTAKI national lab (Budapest). Lived in Tokyo, Budapest, Sydney. 24 countries, 56+ cities. PADI Master Scuba Diver &amp; Rescue Scuba Diver with 56 logged dives. Bench 100kg. Trains 3x/week.</p>
             </div>
             <div className="flex gap-2 mt-5 flex-wrap">
               {[
