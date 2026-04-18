@@ -1,161 +1,232 @@
 @import "tailwindcss";
 
-/* Kanso Design System v2 — masatonaut.dev */
+/* =========================================================
+   MERIDIAN — Editorial Design System
+   "Quiet Ambition" — a one-person studio from Tokyo
+   ========================================================= */
 :root {
-  /* Background */
-  --bg-primary: #FAFAFA;
-  --bg-secondary: #F4F4F5;
+  /* Paper & ink palette */
+  --paper: #EDE4D0;        /* cream / ivory base */
+  --paper-deep: #E3D8BF;   /* slightly darker for sections */
+  --ink: #1B2942;          /* deep navy — primary text */
+  --ink-soft: #2A3B57;     /* softer navy */
+  --ink-mute: #5E6A7F;     /* muted for body */
+  --ink-whisper: #8F96A3;  /* faintest meta */
 
-  /* Text */
-  --text-primary: #18181B;
-  --text-secondary: #71717A;
-  --text-tertiary: #A1A1AA;
+  /* Accents */
+  --amber: #C8913A;        /* mustard gold */
+  --amber-soft: rgba(200, 145, 58, 0.16);
+  --coral: #D88B6F;        /* warm peach secondary */
 
-  /* Accent */
-  --accent: #18181B;
+  /* Hairline / rule */
+  --rule: rgba(27, 41, 66, 0.16);
+  --rule-strong: rgba(27, 41, 66, 0.28);
 
-  /* Border */
-  --border: #E4E4E7;
+  /* Typography */
+  --f-display: var(--font-playfair), 'Playfair Display', 'Times New Roman', Georgia, serif;
+  --f-body: var(--font-inter), -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --f-mono: var(--font-jbm), 'SF Mono', Menlo, monospace;
+  --f-jp: var(--font-noto-jp), 'Hiragino Sans', 'Noto Sans JP', system-ui, sans-serif;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.08);
-
-  /* Spacing */
-  --space-xs: 4px;
-  --space-sm: 8px;
-  --space-md: 16px;
-  --space-lg: 24px;
-  --space-xl: 32px;
-  --space-2xl: 48px;
-  --space-3xl: 64px;
-
-  /* Radius */
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-full: 9999px;
-
-  /* Animation */
-  --ease-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-  :root:not(.light) {
-    --bg-primary: #09090B;
-    --bg-secondary: #18181B;
-    --text-primary: #FAFAFA;
-    --text-secondary: #A1A1AA;
-    --text-tertiary: #52525B;
-    --accent: #FAFAFA;
-    --border: #27272A;
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
-  }
-}
-
-.dark {
-  --bg-primary: #09090B;
-  --bg-secondary: #18181B;
-  --text-primary: #FAFAFA;
-  --text-secondary: #A1A1AA;
-  --text-tertiary: #52525B;
-  --accent: #FAFAFA;
-  --border: #27272A;
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
-}
-
-.light {
-  --bg-primary: #FAFAFA;
-  --bg-secondary: #F4F4F5;
-  --text-primary: #18181B;
-  --text-secondary: #71717A;
-  --text-tertiary: #A1A1AA;
-  --accent: #18181B;
-  --border: #E4E4E7;
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.08);
+  /* Motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @theme inline {
-  --color-bg-primary: var(--bg-primary);
-  --color-bg-secondary: var(--bg-secondary);
-  --color-text-primary: var(--text-primary);
-  --color-text-secondary: var(--text-secondary);
-  --color-text-tertiary: var(--text-tertiary);
-  --color-border: var(--border);
-  --font-sans: var(--font-inter, var(--font-dm-sans)), system-ui, sans-serif;
-  --font-heading: var(--font-outfit), system-ui, sans-serif;
-  --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+  --color-paper: var(--paper);
+  --color-paper-deep: var(--paper-deep);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-mute: var(--ink-mute);
+  --color-ink-whisper: var(--ink-whisper);
+  --color-amber: var(--amber);
+  --color-coral: var(--coral);
+  --color-rule: var(--rule);
+  --font-display: var(--f-display);
+  --font-sans: var(--f-body);
+  --font-mono: var(--f-mono);
+  --font-jp: var(--f-jp);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--bg-primary);
-  color: var(--text-primary);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--f-body);
   font-size: 15px;
-  line-height: 1.7;
-  letter-spacing: 0.01em;
+  line-height: 1.65;
+  letter-spacing: 0.005em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-h1, h2, h3 {
-  font-family: var(--font-heading);
-  letter-spacing: -0.03em;
-  line-height: 1.15;
+/* Paper grain overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.07;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.107 0 0 0 0 0.161 0 0 0 0 0.258 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* Fade up animation */
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-up {
-  animation: fade-up 0.7s ease-out forwards;
-}
-
-.animate-fade-up-delay-1 {
-  animation: fade-up 0.7s ease-out 0.1s forwards;
-  opacity: 0;
-}
-
-.animate-fade-up-delay-2 {
-  animation: fade-up 0.7s ease-out 0.2s forwards;
-  opacity: 0;
-}
-
-.animate-fade-up-delay-3 {
-  animation: fade-up 0.7s ease-out 0.35s forwards;
-  opacity: 0;
-}
-
-/* Section fade in on scroll */
-.section-animate {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.section-animate.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Selection */
 ::selection {
-  background: var(--text-primary);
-  color: var(--bg-primary);
+  background: var(--amber);
+  color: var(--paper);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--f-display);
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+}
+
+em {
+  font-family: var(--f-display);
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* =========================================================
+   Magazine primitives
+   ========================================================= */
+.masthead {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.issue-label {
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--amber);
+  letter-spacing: 0.01em;
+}
+
+.section-num {
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--amber);
+  letter-spacing: 0.01em;
+}
+
+.section-num::before {
+  content: '№ ';
+  font-style: italic;
+}
+
+.rule-amber {
+  display: block;
+  height: 2px;
+  background: var(--amber);
+  width: 56px;
+  margin: 0;
+}
+
+.rule-full {
+  height: 1px;
+  background: var(--rule);
+  width: 100%;
+}
+
+.jp {
+  font-family: var(--f-jp);
+  font-weight: 400;
+  letter-spacing: 0.32em;
+  color: var(--ink-mute);
+}
+
+.small-caps {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+
+.meta-serif {
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--ink-mute);
+  letter-spacing: 0.01em;
+}
+
+.byline {
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+.byline strong {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--ink);
+  font-family: var(--f-display);
+}
+
+/* drop-cap for articles */
+.drop-cap::first-letter {
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-style: italic;
+  float: left;
+  font-size: 4.2em;
+  line-height: 0.88;
+  padding: 6px 10px 0 0;
+  color: var(--ink);
+}
+
+/* Hover rule-underline on links */
+.link-rule {
+  position: relative;
+  color: var(--ink);
+  text-decoration: none;
+  background-image: linear-gradient(to right, var(--amber), var(--amber));
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  transition: background-size 400ms var(--ease), color 250ms var(--ease);
+  padding-bottom: 2px;
+}
+
+.link-rule:hover {
+  background-size: 100% 1px;
+  color: var(--amber);
+}
+
+/* Fade-up animation on mount */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up { animation: fade-up 0.8s var(--ease) forwards; }
+.animate-fade-up-1 { animation: fade-up 0.8s var(--ease) 0.12s forwards; opacity: 0; }
+.animate-fade-up-2 { animation: fade-up 0.8s var(--ease) 0.24s forwards; opacity: 0; }
+.animate-fade-up-3 { animation: fade-up 0.8s var(--ease) 0.36s forwards; opacity: 0; }
+.animate-fade-up-4 { animation: fade-up 0.8s var(--ease) 0.50s forwards; opacity: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
