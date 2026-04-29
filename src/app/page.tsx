@@ -72,8 +72,8 @@ function Masthead() {
   return (
     <div className="flex items-center justify-between text-[11px] pt-7 pb-5 px-6 md:px-10">
       <span className="masthead">Vol. I · Issue 01</span>
-      <span className="masthead hidden sm:inline">Spring / Summer</span>
-      <span className="masthead">MMXXVI</span>
+      <span className="masthead hidden sm:inline">Tokyo</span>
+      <span className="masthead">2026</span>
     </div>
   );
 }
@@ -154,16 +154,11 @@ export default function Home() {
             MASATONAUT
           </h1>
 
-          <div className="flex items-center justify-center gap-5 mb-10 animate-fade-up-2">
+          <div className="flex items-center justify-center gap-5 mb-12 animate-fade-up-2">
             <span className="rule-full max-w-[120px]" />
             <span className="masthead">A ONE-PERSON STUDIO</span>
-            <span className="jp text-sm">宇宙飛行士</span>
             <span className="rule-full max-w-[120px]" />
           </div>
-
-          <p className="issue-label mb-4 animate-fade-up-3">
-            the ascent collection
-          </p>
 
           <h2
             className="animate-fade-up-3"
@@ -177,11 +172,7 @@ export default function Home() {
             <em>Quiet Ambition.</em>
           </h2>
 
-          <p className="jp text-lg md:text-xl mt-6 mb-10 animate-fade-up-4">
-            静 か な る 野 心
-          </p>
-
-          <div className="flex items-center justify-center gap-8 animate-fade-up-4">
+          <div className="flex items-center justify-center gap-8 mt-10 animate-fade-up-4">
             <span className="rule-amber" />
             <span className="meta-serif">— dressed for the work, not for applause —</span>
             <span className="rule-amber" />
@@ -191,38 +182,36 @@ export default function Home() {
         {/* Feature preview grid */}
         <div className="mx-auto max-w-[1180px] mt-20 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-14">
           <div className="animate-fade-up-2">
-            <span className="section-num">01 — Cover Story</span>
+            <span className="section-num">01 — Portrait</span>
             <h3 className="mt-2 text-2xl md:text-3xl">
-              Chapter <em>Four</em>
+              A life in <em>cities</em>
             </h3>
             <p className="mt-3 text-[14.5px] text-[var(--ink-mute)] leading-relaxed">
-              A life measured in cities, not in years. Tokyo — Budapest — Sydney —
-              Los Angeles next.
+              Tokyo. Budapest. Sydney. Los Angeles next. Engineering, then
+              research, then product.
             </p>
-            <p className="jp text-xs mt-3">四 章 目 の 地 図</p>
           </div>
 
           <div className="animate-fade-up-3">
             <span className="section-num">02 — The Work</span>
             <h3 className="mt-2 text-2xl md:text-3xl text-right md:text-right">
-              <em>Focused</em><br />Tools
+              <em>Focused</em> tools
             </h3>
             <p className="mt-3 text-[14.5px] text-[var(--ink-mute)] leading-relaxed text-right md:text-right">
-              KASHITE. YOMU. Phrasely. Sabaku. Four silhouettes for everyday life.
+              KASHITE, YOMU, Phrasely, SABAKU — four small SaaS tools for
+              everyday life, shipped under Kyren.
             </p>
-            <p className="jp text-xs mt-3 text-right">四 つ の 道 具</p>
           </div>
 
           <div className="animate-fade-up-4">
             <span className="section-num">03 — Manifesto</span>
             <h3 className="mt-2 text-2xl md:text-3xl">
-              Dressed for <em>Altitude</em>
+              Built <em>slowly</em>
             </h3>
             <p className="mt-3 text-[14.5px] text-[var(--ink-mute)] leading-relaxed">
-              A mind that survives the transit from Tokyo to LA. Built slowly. Ships
-              quietly.
+              No investor decks. No feature bloat. Just tools that solve real
+              problems, shipped when they're ready.
             </p>
-            <p className="jp text-xs mt-3">上 昇 の た め の 装 い</p>
           </div>
         </div>
       </section>
@@ -248,7 +237,7 @@ export default function Home() {
           <h2 className="text-4xl md:text-6xl mb-2">
             <em>Masato</em> Ito
           </h2>
-          <p className="jp text-sm mb-10">伊 藤 昌 人</p>
+          <p className="jp text-sm mb-10">伊 藤 柾 人</p>
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
             <div className="md:col-span-8">
@@ -280,9 +269,10 @@ export default function Home() {
                 (Budapest), Cybozu (Tokyo), and SZTAKI national lab.
               </p>
               <p className="text-[16px] leading-[1.75] text-[var(--ink-mute)]">
-                Lived in Tokyo, Budapest, Sydney. Visited twenty-four countries,
-                fifty-six cities. PADI Master Scuba Diver — fifty-six logged
-                dives. Bench one-hundred kilograms. Trains three times a week.
+                Lived in Tokyo, Budapest, and Sydney. Twenty-four countries,
+                fifty-six cities. PADI Master Scuba Diver and Rescue Diver —
+                sixty logged dives across the Great Barrier Reef, shipwrecks,
+                and once alongside a whale shark.
               </p>
 
               <div className="flex gap-3 mt-8 flex-wrap">
@@ -336,8 +326,8 @@ export default function Home() {
                   ["ACL 2025", "Published paper"],
                   ["24 countries", "56+ cities"],
                   ["JP / EN", "Bilingual"],
-                  ["Bench 100 kg", "Thrice a week"],
-                  ["56 dives", "Master Scuba"],
+                  ["60 dives", "Master + Rescue Diver"],
+                  ["Whale shark", "Great Barrier Reef"],
                 ].map(([label, sub]) => (
                   <div
                     key={label}
@@ -366,7 +356,6 @@ export default function Home() {
             The <em>Kyren</em> Collection
           </h2>
           <div className="flex items-baseline gap-4 mb-10">
-            <p className="jp text-sm">四 つ の 道 具</p>
             <span className="meta-serif">
               {liveCount} live · {products.length} total
             </span>
@@ -434,10 +423,9 @@ export default function Home() {
             <span className="section-num">04 — The Journey</span>
             <span className="rule-full" />
           </div>
-          <h2 className="text-4xl md:text-6xl mb-2">
+          <h2 className="text-4xl md:text-6xl mb-10">
             A life in <em>cities</em>
           </h2>
-          <p className="jp text-sm mb-10">四 章 目 の 地 図</p>
 
           <ol className="space-y-0 relative">
             {timeline.map((item, i) => (
@@ -486,15 +474,9 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
             <div>
-              <p className="small-caps mb-1.5">Published</p>
+              <p className="small-caps mb-1.5">Based in</p>
               <p className="text-[14px] text-[var(--ink-soft)]">
-                Tokyo · April MMXXVI
-              </p>
-            </div>
-            <div>
-              <p className="small-caps mb-1.5">Typeset in</p>
-              <p className="text-[14px] text-[var(--ink-soft)]">
-                Playfair Display · Inter · Noto Sans JP
+                Tokyo, 2026 — Los Angeles, 2026 onwards
               </p>
             </div>
             <div>
@@ -510,14 +492,29 @@ export default function Home() {
                 </a>
               </p>
             </div>
+            <div>
+              <p className="small-caps mb-1.5">Contact</p>
+              <p className="text-[14px]">
+                <a
+                  href="mailto:hey@kyren.app"
+                  className="link-rule"
+                >
+                  hey@kyren.app
+                </a>
+              </p>
+            </div>
           </div>
 
           <div className="flex items-center justify-between gap-6 pt-6 border-t border-[var(--rule)]">
-            <span className="masthead">© {year} MASATONAUT</span>
-            <span className="meta-serif hidden sm:inline">
-              — quiet ambition, louder than it seems —
-            </span>
-            <span className="jp text-xs">静 か な る 野 心</span>
+            <span className="masthead">© {year} Masato Ito</span>
+            <a
+              href="https://x.com/masatobuilds"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="meta-serif hidden sm:inline link-rule"
+            >
+              @masatobuilds
+            </a>
           </div>
         </div>
       </footer>
