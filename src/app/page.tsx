@@ -142,11 +142,13 @@ export default function Home() {
           <h1
             className="animate-fade-up-1"
             style={{
-              fontSize: "clamp(3.2rem, 10vw, 8rem)",
+              fontSize: "clamp(2.4rem, 11vw, 8rem)",
               fontWeight: 800,
               letterSpacing: "0.02em",
               lineHeight: 0.96,
               marginBottom: 12,
+              maxWidth: "100%",
+              overflowWrap: "break-word",
             }}
           >
             MASATONAUT
