@@ -154,23 +154,22 @@ export default function Home() {
             MASATONAUT
           </h1>
 
-          <div className="flex items-center justify-center gap-5 mb-12 animate-fade-up-2">
+          <div className="flex items-center justify-center gap-5 mb-8 animate-fade-up-2">
             <span className="rule-full max-w-[120px]" />
             <span className="masthead">A ONE-PERSON STUDIO</span>
             <span className="rule-full max-w-[120px]" />
           </div>
 
-          <h2
-            className="animate-fade-up-3"
+          <p
+            className="animate-fade-up-3 mx-auto max-w-2xl text-[var(--ink-soft)]"
             style={{
-              fontSize: "clamp(3rem, 9vw, 7rem)",
-              lineHeight: 1,
-              letterSpacing: "-0.02em",
-              fontWeight: 500,
+              fontSize: "clamp(1.05rem, 1.6vw, 1.3rem)",
+              lineHeight: 1.55,
             }}
           >
-            <em>Quiet Ambition.</em>
-          </h2>
+            Masato Ito — AI engineer and indie maker, building <em>Kyren</em> from
+            Tokyo. Heading to USC for an MS in Computer Science, Fall 2026.
+          </p>
 
           <div className="flex items-center justify-center gap-8 mt-10 animate-fade-up-4">
             <span className="rule-amber" />
